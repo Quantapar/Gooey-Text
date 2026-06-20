@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    @apply font-sans text-white antialiased;
+  }
+
+  body {
+    @apply relative m-0 min-h-screen min-w-[320px] overflow-x-hidden;
+    background-color: #050505;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 255, 255, 0.07), transparent),
+      radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03), transparent 50%);
+  }
+
+  #root {
+    @apply grid min-h-screen place-items-center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
