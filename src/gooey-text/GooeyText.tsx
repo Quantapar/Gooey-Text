@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef } from "react";
 import { animate } from "framer-motion";
 import { letterToPath } from "./glyphs";
 
@@ -58,12 +58,12 @@ export function GooeyText({
   // so a changing `radius` (e.g. caps ↔ lowercase) eases instead of snapping.
   const firstRadius = useRef(radius);
   const prevRadius = useRef(radius);
-  const [pathD, setPathD] = useState("");
-
-  // Resolve the current glyph (with optional hand-tweaked override).
-  useEffect(() => {
-    setPathD(overrides?.[char] ?? letterToPath(char, font));
-  }, [char, overrides, font]);
+  // Resolve the current glyph (with optional hand-tweaked override). Derived
+  // during render — no state/effect needed, so a keypress doesn't double-render.
+  const pathD = useMemo(
+    () => overrides?.[char] ?? letterToPath(char, font),
+    [char, overrides, font],
+  );
 
   // Once the path is in the DOM, spread the circles along it — the gooey morph.
   useEffect(() => {
