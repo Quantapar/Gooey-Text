@@ -8,8 +8,8 @@ export function App() {
     <>
       <main className="flex w-full max-w-full flex-col items-center gap-5 p-6 text-center sm:gap-6 sm:p-8">
         <header className="flex flex-col items-center gap-2">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Gooey Text</h1>
-          <p className="text-sm text-white/40">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Gooey Text</h1>
+          <p className="text-base text-white/40">
             <span className="pointer-coarse:hidden">Type any alphabet</span>
             <span className="hidden pointer-coarse:inline">Browse the alphabet</span>
           </p>
@@ -21,7 +21,7 @@ export function App() {
             type="button"
             onClick={prev}
             aria-label="Previous letter"
-            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center text-white/60 transition active:scale-90 pointer-coarse:flex"
           >
             <Chevron dir="left" />
           </button>
@@ -39,14 +39,14 @@ export function App() {
             type="button"
             onClick={next}
             aria-label="Next letter"
-            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center text-white/60 transition active:scale-90 pointer-coarse:flex"
           >
             <Chevron dir="right" />
           </button>
         </div>
 
-        <p className="text-sm text-white/35">
-          Showing <span className="text-white/75">{char}</span>
+        <p className="text-base text-white/35">
+          Showing <span className="ml-1.5 text-white/75">{char}</span>
         </p>
 
         {/* Caps toggle — mobile only (web uses Shift / CapsLock). */}
