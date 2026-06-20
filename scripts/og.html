@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; }
+      body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        font-family: -apple-system, "Helvetica Neue", system-ui, sans-serif;
+        color: #fff;
+        background-color: #050505;
+        background-image:
+          radial-gradient(ellipse 70% 55% at 50% -8%, rgba(255,255,255,0.10), transparent 70%),
+          radial-gradient(circle at 50% 118%, rgba(255,255,255,0.05), transparent 55%);
+        overflow: hidden;
+      }
+      /* subtle inner hairline frame for polish */
+      body::after {
+        content: "";
+        position: absolute;
+        inset: 22px;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 24px;
+        pointer-events: none;
+      }
+      .goo { margin-bottom: 18px; filter: drop-shadow(0 0 60px rgba(255,255,255,0.18)); }
+      h1 {
+        font-size: 96px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      p.sub {
+        font-size: 30px;
+        font-weight: 400;
+        color: rgba(255,255,255,0.42);
+        letter-spacing: 0.01em;
+      }
+      .by {
+        position: absolute;
+        bottom: 46px;
+        right: 60px;
+        font-size: 22px;
+        color: rgba(255,255,255,0.32);
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="goo" width="300" height="200" viewBox="0 0 300 200">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b" />
+          <feColorMatrix in="b" mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 90 -48" />
+        </filter>
+      </defs>
+      <g filter="url(#goo)" fill="#ffffff">
+        <circle cx="70"  cy="110" r="42" />
+        <circle cx="120" cy="80"  r="36" />
+        <circle cx="150" cy="120" r="46" />
+        <circle cx="195" cy="86"  r="34" />
+        <circle cx="225" cy="120" r="42" />
+        <circle cx="148" cy="150" r="34" />
+      </g>
+    </svg>
+    <h1>Gooey Text</h1>
+    <p class="sub">Type any alphabet · watch it melt</p>
+    <div class="by">@quantapar</div>
+  </body>
+</html>

@@ -135,6 +135,13 @@ const result = await Bun.build({
   ...cliConfig,
 });
 
+// Copy static assets that need stable, unhashed URLs (e.g. the OG image
+// referenced by absolute URL in social meta tags).
+for (const file of ["og.png"]) {
+  const src = Bun.file(path.join("src", file));
+  if (await src.exists()) await Bun.write(path.join(outdir, file), src);
+}
+
 const end = performance.now();
 
 const outputTable = result.outputs.map(output => ({
