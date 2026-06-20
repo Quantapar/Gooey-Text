@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Use STIX Two Text (serif) as the UI typeface. The gooey blob letters are an
+   SVG path font and are unaffected by this. */
+@theme {
+  --font-sans: "STIX Two Text", Georgia, serif;
+}
+
 @layer base {
   :root {
     @apply font-sans text-white antialiased;
