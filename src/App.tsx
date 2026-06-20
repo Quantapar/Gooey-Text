@@ -21,7 +21,7 @@ export function App() {
             type="button"
             onClick={prev}
             aria-label="Previous letter"
-            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
           >
             <Chevron dir="left" />
           </button>
@@ -32,14 +32,14 @@ export function App() {
             char={char}
             radius={caps ? 19 : 17}
             intensity={caps ? 150 : 100}
-            className="h-auto w-[min(78vw,420px)] pointer-coarse:w-[min(62vw,420px)]"
+            className="h-auto w-[min(78vw,420px)] pointer-coarse:w-[min(52vw,420px)]"
           />
 
           <button
             type="button"
             onClick={next}
             aria-label="Next letter"
-            className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition active:scale-90 active:bg-white/10 pointer-coarse:flex"
           >
             <Chevron dir="right" />
           </button>
@@ -89,7 +89,7 @@ export function App() {
 
 function Chevron({ dir }: { dir: "left" | "right" }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d={dir === "left" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}
         stroke="currentColor"
