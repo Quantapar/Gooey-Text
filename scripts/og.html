@@ -50,6 +50,13 @@
         color: rgba(255,255,255,0.32);
         letter-spacing: 0.01em;
       }
+      /* The "@" glyph sits optically high next to lowercase — nudge it down
+         and shrink slightly so it lines up with "quantapar". */
+      .by .at {
+        display: inline-block;
+        font-size: 0.9em;
+        transform: translateY(1px);
+      }
     </style>
   </head>
   <body>
@@ -71,6 +78,6 @@
       </g>
     </svg>
     <h1>Gooey Text</h1>
-    <div class="by">@quantapar</div>
+    <div class="by"><span class="at">@</span>quantapar</div>
   </body>
 </html>
