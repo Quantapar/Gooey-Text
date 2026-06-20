@@ -5,6 +5,14 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gooey-text.vercel.app" }],
+      "destination": "https://gooey-text.quantapar.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
