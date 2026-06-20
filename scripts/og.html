@@ -53,25 +53,24 @@
     </style>
   </head>
   <body>
-    <svg class="goo" width="300" height="200" viewBox="0 0 300 200">
+    <!-- Same blob as the favicon (identical circles + goo filter). -->
+    <svg class="goo" width="280" height="280" viewBox="0 0 256 256">
       <defs>
         <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="b" />
           <feColorMatrix in="b" mode="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 90 -48" />
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 100 -54" />
         </filter>
       </defs>
       <g filter="url(#goo)" fill="#ffffff">
-        <circle cx="70"  cy="110" r="42" />
-        <circle cx="120" cy="80"  r="36" />
-        <circle cx="150" cy="120" r="46" />
-        <circle cx="195" cy="86"  r="34" />
-        <circle cx="225" cy="120" r="42" />
-        <circle cx="148" cy="150" r="34" />
+        <circle cx="98" cy="116" r="40" />
+        <circle cx="150" cy="98" r="34" />
+        <circle cx="164" cy="148" r="40" />
+        <circle cx="112" cy="166" r="36" />
+        <circle cx="130" cy="136" r="40" />
       </g>
     </svg>
     <h1>Gooey Text</h1>
-    <p class="sub">Type any alphabet · watch it melt</p>
     <div class="by">@quantapar</div>
   </body>
 </html>
