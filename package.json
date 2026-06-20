@@ -5,6 +5,15 @@
   "private": true,
   "type": "module",
   "keywords": ["react", "svg", "gooey", "animation", "framer-motion"],
+  "author": "Quantapar (https://x.com/quantapar)",
+  "homepage": "https://gooey-text.quantapar.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quantapar/Gooey-Text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Quantapar/Gooey-Text/issues"
+  },
   "scripts": {
     "dev": "bun --hot src/index.ts",
     "start": "NODE_ENV=production bun src/index.ts",

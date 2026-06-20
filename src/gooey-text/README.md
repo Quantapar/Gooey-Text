@@ -13,15 +13,25 @@ tutorial — same technique, generalized to the whole alphabet.
 import { GooeyText, useGooeyKeyboard } from "./gooey-text";
 
 export function Demo() {
-  const { char, caps } = useGooeyKeyboard(); // tracks the last letter key pressed
+  const { char, caps } = useGooeyKeyboard(); // tracks the last letter typed
   return <GooeyText char={char} radius={caps ? 19 : 17} />;
 }
 ```
 
 `useGooeyKeyboard` follows the real key event, so **Shift / CapsLock give
 capitals** automatically — the user controls case from their keyboard. It
-returns `{ char, caps }`, where `caps` is `true` when `char` is a capital. Or
-drive `char` yourself from any source.
+returns:
+
+| field             | type                  | what it is                                                        |
+| ----------------- | --------------------- | ----------------------------------------------------------------- |
+| `char`            | `string`              | the current letter, in the active case (`"a"` / `"A"`)            |
+| `caps`            | `boolean`             | `true` when capitals are active                                   |
+| `prev` / `next`   | `() => void`          | step to the previous / next letter (wraps) — for on-screen arrows |
+| `setCaps`         | `(on: boolean) => void` | toggle capitals — for an on-screen caps button                  |
+
+The `prev` / `next` / `setCaps` controls are what power the mobile UI (where
+there's no physical keyboard). Or ignore the hook entirely and drive `char`
+yourself from any source.
 
 ## `<GooeyText>` props
 
