@@ -2,14 +2,32 @@ import { GooeyText, useGooeyKeyboard } from "./gooey-text";
 import "./index.css";
 
 export function App() {
-  const { char, caps } = useGooeyKeyboard();
+  const { char, caps, inputRef } = useGooeyKeyboard();
 
   return (
     <>
+      {/* Hidden input — summons the on-screen keyboard on phones/tablets and
+          captures typed letters on every device. Tapping anywhere focuses it. */}
+      <input
+        ref={inputRef}
+        aria-label="Type a letter to morph the gooey text"
+        inputMode="text"
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck={false}
+        tabIndex={-1}
+        // font-size 16px keeps iOS from zooming in when it focuses.
+        className="pointer-events-none fixed left-1/2 top-0 h-px w-px -translate-x-1/2 text-base opacity-0"
+      />
+
       <main className="flex w-full max-w-full flex-col items-center gap-5 p-6 text-center sm:gap-6 sm:p-8">
         <header className="flex flex-col items-center gap-2">
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Gooey Text</h1>
-          <p className="text-sm text-white/40">Type any alphabet</p>
+          <p className="text-sm text-white/40">
+            <span className="pointer-coarse:hidden">Type any alphabet</span>
+            <span className="hidden pointer-coarse:inline">Tap anywhere, then type</span>
+          </p>
         </header>
 
         {/* caps letters get slightly bigger, sharper blobs */}
