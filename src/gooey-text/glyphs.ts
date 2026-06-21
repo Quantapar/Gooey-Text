@@ -10,7 +10,8 @@ function parseFont(svg: string): Map<string, string> {
   if (glyphs) return glyphs;
   glyphs = new Map();
   for (const m of svg.matchAll(/<glyph[^>]*unicode="(.)"[^>]*\sd="([^"]*)"/g)) {
-    glyphs.set(m[1], m[2]);
+    const [, unicode, d] = m;
+    if (unicode && d) glyphs.set(unicode, d);
   }
   fontCache.set(svg, glyphs);
   return glyphs;
@@ -32,10 +33,13 @@ export function letterToPath(char: string, fontSvg: string = defaultFont): strin
   // Bounding box over every point (font space, y pointing UP).
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   for (let i = 0; i < nums.length; i += 2) {
-    minX = Math.min(minX, nums[i]);
-    maxX = Math.max(maxX, nums[i]);
-    minY = Math.min(minY, nums[i + 1]);
-    maxY = Math.max(maxY, nums[i + 1]);
+    const x = nums[i];
+    const y = nums[i + 1];
+    if (x === undefined || y === undefined) break;
+    minX = Math.min(minX, x);
+    maxX = Math.max(maxX, x);
+    minY = Math.min(minY, y);
+    maxY = Math.max(maxY, y);
   }
   const cx = (minX + maxX) / 2;
   const cy = (minY + maxY) / 2;
